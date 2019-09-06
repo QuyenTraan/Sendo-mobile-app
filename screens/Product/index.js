@@ -8,7 +8,7 @@ import { IconLoading, Comment, HeaderBar, Ratings } from '../../components'
 import styles from './style'
 import { format } from '../../utils'
 
-class ProductScreen extends Component {
+class ProductDetail extends Component {
   static navigationOptions = ({ navigation }) => {
     const { state } = navigation
     return {
@@ -198,39 +198,6 @@ const style = StyleSheet.create({
     marginTop: 10,
   }
 })
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-  },
-  slide: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#e8ebef',
-    padding: 0,
-    margin: 0,
-  },
-  text: {
-    fontSize: 30,
-    color: 'red',
-    fontStyle: 'italic',
-  },
-  productName: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: 'black',
-  },
-  cardMargin: {
-    margin: 0,
-  },
-  marginBottom: {
-    marginBottom: 10,
-  },
-  rating: {
-    marginTop: 10,
-  },
-  aligncenter: {
-    textAlign: 'center',
-  }
-})
+
+
+export default connect(mapStateToProps)(ProductDetail)
