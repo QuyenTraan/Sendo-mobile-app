@@ -1,0 +1,17 @@
+{
+    "development": {
+        "user": "sv_crm",
+        "password": "123",
+        "server": "localhost",
+        "database": "ioiort_crm",
+        "requestTimeout": 10000,
+        "option": {
+            "encrypt": false
+        },
+        "pool": {
+            "min": 1,
+            "max": 1000,
+            "idleTimeoutMillis": 2000
+        }
+    }
+}
