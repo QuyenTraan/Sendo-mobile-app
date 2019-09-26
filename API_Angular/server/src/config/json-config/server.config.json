@@ -1,8 +1,0 @@
-{
-    "development": {
-        "port": 3100
-    },
-    "test": {
-        "port": 3100
-    }
-}
