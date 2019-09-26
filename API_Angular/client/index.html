@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+
+    <title>App Angular 2 Base</title>
+
+    <!--quill style-->
+    <link rel="stylesheet" href="css/quill/dist/quill.snow.css">
+    <link rel="stylesheet" href="css/quill/dist/quill.bubble.css">
+    <!--sweetalert2 stuff-->
+    <link rel="stylesheet" href="css/sweetalert2/dist/sweetalert2.min.css">
+    <!--jquery stuff-->
+    <script src="scripts/jquery/dist/jquery.min.js"></script>
+    <!--select2 stuff-->
+    <script src="scripts/select2/dist/js/select2.full.min.js"></script>
+    <link rel="stylesheet" href="css/select2/dist/css/select2.min.css">
+    <!--bootstap stuff-->
+    <script src="scripts/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css">
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="libs/core-js/client/shim.min.js"></script>
+    <script src="libs/zone.js/dist/zone.js"></script>
+    <script src="libs/reflect-metadata/Reflect.js"></script>
+    <script src="libs/systemjs/dist/system.src.js"></script>
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function (err) { console.error(err); });
+    </script>
+</head>
+<!-- 3. Display the application -->
+
+<body>
+    <my-app>Loading...</my-app>
+</body>
+
+</html>

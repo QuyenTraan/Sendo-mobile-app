@@ -1,0 +1,24 @@
+{
+    "development": {
+        "database": "QL_MONAN",
+        "user": "postgres",
+        "password": "170898",
+        "host": "localhost",
+        "port": 5432,
+        "ssl": false,
+        "max": 100,
+        "min": 0,
+        "idleTimeoutMillis": 1000
+    },
+    "test": {
+        "database": "crawl_news",
+        "user": "test_username",
+        "password": "123456",
+        "host": "localhost",
+        "port": 5432,
+        "ssl": false,
+        "max": 100,
+        "min": 0,
+        "idleTimeoutMillis": 1000
+    }
+}

@@ -1,0 +1,38 @@
+<status (valueUpdated)="stateChange()"></status>
+<search-bar (searchTrigger)="stateChange()"></search-bar>
+<order-by (valueUpdated)="stateChange()"></order-by>
+<button (click)="deleteByChecked()">Xoa theo chon</button>
+<button (click)="deleteByFilter()">Xoa theo bo loc</button>
+<select [(ngModel)]="_itemsPerPage" (change)="updatePerPage()">
+  <option [ngValue]="10">10</option>
+  <option [ngValue]="20">20</option>
+  <option [ngValue]="50">50</option>
+  <option [ngValue]="100">100</option>
+</select>
+
+<button type="button" (click)="openCreateModal()">Tạo mới Noi Dung Model Style</button>
+<button type="button" (click)="openCreate()">Tạo mới Noi Dung Normal Style</button>
+
+<loader [isRunning]="!_isLoaded"></loader>
+<table *ngIf="_isLoaded">
+    <thead>
+        <th>STT</th>
+        <th>Checked</th>
+        <th>Ten</th>
+        <th>Trang thai</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let value of _data | async | paginate: { itemsPerPage: _itemsPerPage, currentPage: _currentPage, totalItems: _total}; trackBy: identify">
+            <td>
+                <a (click)="openEditModal(value.noi_dung_id)">{{value.noi_dung_id}}</a>
+                <a (click)="openEdit(value.noi_dung_id)">{{value.noi_dung_id}} no modal</a>
+            </td>
+            <td>
+                <input #inputCheckbox type="checkbox" [checked]="value.checked" (change)="checkBoxChecked(inputCheckbox.checked,value)" />
+            </td>
+            <td>{{value.tieu_de}}</td>
+            <td>{{value.current_status}}</td>
+        </tr>
+    </tbody>
+</table>
+<paging (changePage)="stateChange()"></paging>

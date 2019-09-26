@@ -1,0 +1,108 @@
+<form [formGroup]="_noiDungForm" novalidate (ngSubmit)="emitValue.emit(_noiDungForm.value)">
+    <div class="form-group">
+        <label for="id">ID:</label>
+        <input class="form-control" formControlName="noi_dung_id" name="id" readonly/>
+        <div *ngIf="_formErrors.noi_dung_id" class="alert alert-danger">
+            {{_formErrors.noi_dung_id}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="tieu_de">Tiêu Đề:</label>
+        <input class="form-control" formControlName="tieu_de" name="tieu_de" />
+        <div *ngIf="_formErrors.tieu_de" class="alert alert-danger">
+            {{_formErrors.tieu_de}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="current_status">Current Status:</label>
+        <select name="current_status" class="form-control" formControlName="current_status">
+            <option *ngFor="let status of _current_status" [value]="status">{{status}}</option>
+        </select>
+        <div *ngIf="_formErrors.current_status" class="alert alert-danger">
+            {{_formErrors.current_status}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Value Boolean:</label>
+
+        <label class="switch">
+            <input type="checkbox" formControlName="value_boolean">
+            <div class="slider round"></div>
+        </label>
+
+        <div *ngIf="_formErrors.value_boolean" class="alert alert-danger">
+            {{_formErrors.value_boolean}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Value Int:</label> <br/>
+        <input type="radio" formControlName="value_int" value="1" /> 1 <br/>
+        <input type="radio" formControlName="value_int" value="2" /> 2 <br/>
+        <input type="radio" formControlName="value_int" value="3" /> 3 <br/>
+
+        <div *ngIf="_formErrors.value_int" class="alert alert-danger">
+            {{_formErrors.value_int}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Value Time:</label> <br/>
+        <input type="date" formControlName="value_time" />
+
+        <div *ngIf="_formErrors.value_time" class="alert alert-danger">
+            {{_formErrors.value_time}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Value Decimal:</label> <br/>
+        <input type="text" formControlName="value_decimal" (keyup)="onKeyDown($event)" (keydown)="onKeyDown($event)" />
+
+        <div *ngIf="_formErrors.value_decimal" class="alert alert-danger">
+            {{_formErrors.value_decimal}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Noi Dung:</label> <br/>
+        <textarea formControlName="noi_dung_content"></textarea>
+
+        <div *ngIf="_formErrors.noi_dung" class="alert alert-danger">
+            {{_formErrors.noi_dung}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Select2 Select: </label> <br/>
+        <select2-input formControlName="tag_text"></select2-input>
+
+        <div *ngIf="_formErrors.select2Select" class="alert alert-danger">
+            {{_formErrors.select2Select}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Quill editor: </label> <br/>
+        <quill-editor placeholder="Nhập nội dung vào đây..." formControlName="noi_dung_content_big"></quill-editor>
+
+        <div *ngIf="_formErrors.editor" class="alert alert-danger">
+            {{_formErrors.editor}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>3 Checkbox: </label> <br/>
+        <input type="checkbox" formControlName="checkbox1" /> Checkbox 1 <br/>
+        <input type="checkbox" formControlName="checkbox2" /> Checkbox 2 <br/>
+        <input type="checkbox" formControlName="checkbox3" /> Checkbox 3
+
+        <!--<div *ngIf="_formErrors.editor" class="alert alert-danger">
+            {{_formErrors.editor}}
+        </div>-->
+    </div>
+    <div class="form-group">
+        <button type="submit" [disabled]="_noiDungForm.pristine || _noiDungForm.status === 'INVALID'" class="btn btn-success">Save</button>
+        <button class="btn btn-danger" type="button" (click)="close.emit()">Thoát</button>
+    </div>
+
+</form>
+
+<div>
+    <p>Form value: {{_noiDungForm.value | json}}</p>
+    <p>Form status: {{_noiDungForm.status}}</p>
+    <p *ngIf="model">Data: {{model | json}}</p>
+</div>

@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Admin Noi Dung Edit Page</h1>
+        </div>
+    </div>
+    <div class="row" style="margin: 10">
+        <admin-noi-dung-form [model]="_noiDung" (emitValue)="onEmitValue($event)" (close)="onClose(true)"></admin-noi-dung-form>
+    </div>
+</div>
